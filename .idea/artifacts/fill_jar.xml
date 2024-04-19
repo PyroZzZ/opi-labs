@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="fill:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/fill_jar</output-path>
+    <root id="archive" name="fill.jar">
+      <element id="module-output" name="fill" />
+    </root>
+  </artifact>
+</component>

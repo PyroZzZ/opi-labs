@@ -1,5 +1,6 @@
 import java.util.Random;
 
+// Удалить столбец, содержащий минимальное отрицательное
 public class task02 {
     static int N = 5;
     static int M = 4;

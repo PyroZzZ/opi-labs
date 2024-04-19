@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/lab02/libs/fill/fill.iml" filepath="$PROJECT_DIR$/lab02/libs/fill/fill.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lab02/lab02.iml" filepath="$PROJECT_DIR$/lab02/lab02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lab03/lab03.iml" filepath="$PROJECT_DIR$/lab03/lab03.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lab02/libs/minEven/minEven.iml" filepath="$PROJECT_DIR$/lab02/libs/minEven/minEven.iml" />
+      <module fileurl="file://$PROJECT_DIR$/opi-labs.iml" filepath="$PROJECT_DIR$/opi-labs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lab02/libs/print/print.iml" filepath="$PROJECT_DIR$/lab02/libs/print/print.iml" />
+    </modules>
+  </component>
+</project>

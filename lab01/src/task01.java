@@ -1,5 +1,6 @@
 import java.util.Random;
 
+// Удалить из массива все элементы, встречающиеся ровно два или три раза
 public class task01 {
     static int N = 10;
     static int[] arr = new int[N];
@@ -9,14 +10,14 @@ public class task01 {
 
         System.out.println("Source array:");
         //arr = new int[]{1, 2, 0, 4, 5, 6, 7, 8, 9, 0};
-        //arr = new int[]{1,2,3,3,3,3,7,8,9,0};
+        //arr = new int[]{1,4,3,2,2,3,7,8,9,0};
         for (int i = 0; i < N; i++) {
             arr[i] = r.nextInt(10);
             System.out.printf("%2d", arr[i]);
         }
 
         // Поиск повторяющихся
-        Integer tmp = null;
+        int tmp;
         for (int i = 0; i < N; i++) {
             for (int j = i + 1; j < N; j++) {
                 if (arr[i] == arr[j]) {

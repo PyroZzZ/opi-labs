@@ -7,7 +7,7 @@ public class OneDimensionalArray {
         array = new int[size];
         Random random = new Random();
         for (int i = 0; i < size; i++) {
-            array[i] = random.nextInt(10);
+            array[i] = random.nextInt(10) - 2;
         }
     }
 
@@ -24,30 +24,31 @@ public class OneDimensionalArray {
             }
         }
 
+        System.out.println("Сумма на чётных местах: " + sumEven);
+        System.out.println("Сумма на нечётных местах: " + sumOdd);
+
         if (sumEven > sumOdd) {
-            System.out.println("Чётных > нечётных");
+            System.out.println("Сумма на чётных местах > на нечётных местах");
             return;
         }
         else if (sumEven < sumOdd) {
-            System.out.println("Нечётных > чётных");
+            System.out.println("Сумма на нечётных местах > на чётных местах");
             return;
         }
 
-        System.out.println("Элементов поровну");
+        System.out.println("Сумма элементов на нечётных и чётных местах одинаковая");
     }
 
-    protected int[] findMaxPositiveRow(int[][] arrays) {
-        int maxPositive = 0;
-        int[] maxRow = null;
-        for (int[] row : arrays) {
-            for (int i = 0; i < row.length; i++) {
-                if (row[i] > maxPositive) {
-                    maxPositive = row[i];
-                    maxRow = row.clone();
-                }
+    protected int findMaxPositive(int[] arr, int max) {
+        boolean changed = false;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+                changed = true;
             }
         }
-        return maxRow;
+        if (changed) return max;
+        return -1;
     }
 
     protected boolean hasOddNegative(int[] row) {
@@ -57,10 +58,6 @@ public class OneDimensionalArray {
             }
         }
         return false;
-    }
-
-    public void processNonRectangular2DArray() {
-
     }
 
     public String arrayToString() {

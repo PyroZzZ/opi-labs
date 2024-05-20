@@ -8,42 +8,32 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 
 public class DiggerGame extends JFrame implements KeyListener {
-
     private static final int WIDTH = 784;
     private static final int HEIGHT = 660;
-
     private Level level;
     private Player player;
     private ArrayList<Enemy> enemies = new ArrayList<>();
     private int score;
     private int lives;
-
     private final JPanel gamePanel;
-
     private BufferedImage backgroundImage;
     private BufferedImage playerImage;
     private BufferedImage blockImage;
     private BufferedImage goldImage;
     private BufferedImage enemyImage;
-
     private double rotationRequired = Math.toRadians (0);
     private double locationX = 24;
     private double locationY = 24;
     private AffineTransform tx = AffineTransform.getRotateInstance(rotationRequired, locationX, locationY);
     private AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_BILINEAR);
-
-
     private int currentLevel = 1;
-
     private Timer timer;
     private int delay = 800;
-
     public DiggerGame() {
         setTitle("Digger");
         setSize(WIDTH, HEIGHT);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-
         try {
             backgroundImage = ImageIO.read(getClass().getResource("img/background.png"));
         } catch (IOException e) {
@@ -79,7 +69,6 @@ public class DiggerGame extends JFrame implements KeyListener {
 
         setVisible(true);
     }
-
     private void initGame() {
         level = new Level();
         player = new Player(level, this);
@@ -88,7 +77,6 @@ public class DiggerGame extends JFrame implements KeyListener {
         level.loadLevel("Digger\\src\\level1.txt");
         gamePanel.repaint();
     }
-
     private void drawGame(Graphics g) {
         for (int y = 0; y < level.getHeight(); y++) {
             for (int x = 0; x < level.getWidth(); x++) {
@@ -113,10 +101,9 @@ public class DiggerGame extends JFrame implements KeyListener {
 
         g.setColor(new Color(213, 105, 60));
         g.setFont(new Font("Arial", Font.BOLD, 32));
-        g.drawString("Score: " + score, 10, getHeight() - 50);
-        g.drawString("Lives: " + lives, 200, getHeight() - 50);
+        g.drawString("Очки: " + score, 10, getHeight() - 50);
+        g.drawString("Жизни: " + lives, 200, getHeight() - 50);
     }
-
     private void updateGame() {
         enemies = level.getEnemies();
         enemies.forEach(enemy -> {
@@ -138,7 +125,6 @@ public class DiggerGame extends JFrame implements KeyListener {
 
         gamePanel.repaint();
     }
-
     private void nextLevel() {
         currentLevel++;
         if (currentLevel > 3) {
@@ -150,7 +136,6 @@ public class DiggerGame extends JFrame implements KeyListener {
         level.loadLevel("Digger\\src\\level" + currentLevel + ".txt");
         player.setPosition(8, 10);
     }
-
     private void finalScreen() {
         timer.stop();
 
@@ -182,16 +167,14 @@ public class DiggerGame extends JFrame implements KeyListener {
         dialog.add(panel);
 
         dialog.setVisible(true);
-        System.exit(0);
+        StartScreen startScreen = new StartScreen();
+        this.dispose();
     }
-
     public void addScore(int value) {
         score += value;
     }
-
     @Override
     public void keyTyped(KeyEvent e) { }
-
     @Override
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()) {
@@ -249,13 +232,6 @@ public class DiggerGame extends JFrame implements KeyListener {
 
         gamePanel.repaint();
     }
-
     @Override
     public void keyReleased(KeyEvent e) { }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            new DiggerGame();
-        });
-    }
 }

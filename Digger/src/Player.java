@@ -5,11 +5,8 @@ public class Player {
     private int x;
     private int y;
     private int direction; // 0 - вверх, 1 - вправо, 2 - вниз, 3 - влево
-
     private DiggerGame game;
-
     private Level level;
-
     public Player(Level level, DiggerGame game) {
         this.level = level;
         this.game = game;
@@ -17,16 +14,13 @@ public class Player {
         y = 10;
         direction = 1;
     }
-
     public void setPosition(int x, int y) {
         this.x = x;
         this.y = y;
     }
-
     public int getX() {
         return x;
     }
-
     public int getY() {
         return y;
     }
